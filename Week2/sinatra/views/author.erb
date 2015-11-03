@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <section class="content">
+    <article class="f-left">
+      <h1>My First Siantra</h1>
+      <p>
+        <strong>Author:</strong> Lluis Arévalo
+        <div>
+          <img src="/cool_image.jpg" alt="Photo of the author" width="300" />
+        </div>
+      </p>
+    </article>
+    <article class="f-left">
+      <h2>Welcome <%= @user_name %>!</h2>
+
+      <h3>Current time <strong><%= @current_time %></strong></h3>
+
+      <% if Date.today.monday? %>
+        <p>
+          Izzy Ironside is <strong>NOT</strong> a fan of Monday like today.
+        </p>
+        <p>
+          Izzy Ironside was born on <%= Date.today %>
+        </p>
+      <% end %>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,400);
+
+body {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 100;
+}
+
+strong {
+  font-weight: 400;
+}
+
+.content {
+  width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-family: Poiret One; 
+  font-size: 30px;
+}
+
+.f-left {
+  float: left;
+  width: 50%;
+}
+
+#hours_ago {
+  text-align: center;
+}
