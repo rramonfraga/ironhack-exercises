@@ -24,3 +24,15 @@ get "/tasks" do
   
   erb(:task_index)
 end
+
+get "/new_task" do
+  erb(:new_task)
+end
+
+post "/create_task" do
+  task = Task.new params[:task]
+  todo_list = session[:list]
+  todo_list.add_task task
+  todo_list.save
+  redirect '/tasks'
+end
