@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../task.rb'
+require_relative '../lib/task.rb'
 
 RSpec.describe "Sinatra TODO list tests" do
   let(:task) { Task.new "Walk the dog" }
