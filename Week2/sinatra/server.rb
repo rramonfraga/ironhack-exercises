@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 
+enable(:sessions)
+
 get "/" do
   "My first Sinatra app. Let's modify the server.rb file"
 end
@@ -34,4 +36,13 @@ get "/hours/ago/:hour" do
   @hours_ago = @hours_ago.strftime("%d-%m-%y %H:%M:%S")
 
   erb(:hours_ago)
+end
+
+get "/session_test/:pizza" do
+  session[:pizza_session] = params[:pizza]
+  redirect "/session_test_show/show_pizza"
+end
+
+get "/session_test_show/show_pizza" do
+  session[:pizza_session]
 end
