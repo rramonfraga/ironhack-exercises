@@ -7,7 +7,6 @@ module ManageData
     @todo_store.transaction do
       @todo_store[@user] = @tasks
     end
-    binding.pry
   end
 
   def load_tasks

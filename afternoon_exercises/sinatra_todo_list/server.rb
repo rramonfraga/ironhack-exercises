@@ -33,6 +33,12 @@ post "/create_task" do
   task = Task.new params[:task]
   todo_list = session[:list]
   todo_list.add_task task
-  todo_list.save
+  redirect '/tasks'
+end
+
+get "/complete_task/:id" do
+  todo_list = session[:list]
+  task = todo_list.find_task_by_id(params[:id].to_i)
+  task.complete!
   redirect '/tasks'
 end

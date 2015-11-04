@@ -7,7 +7,7 @@
   <body>
     <ul>
       <% @todo_list.tasks.each do |task| %>
-        <li><%= task.content %></li>
+        <li><%= task.content %> <a href="/complete_task/<%= task.id %>">Complete!</a></li>
       <% end %>
     </ul>
     <a href="/new_task">Add new task</a>
