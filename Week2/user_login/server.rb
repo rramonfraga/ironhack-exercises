@@ -23,7 +23,7 @@ post "/" do
 end
 
 get "/private_page" do
-  if(session[:username] != "")
+  if(session[:username] == nil || session[:username] != "")
     erb(:private_page)
   else
     redirect "/"
