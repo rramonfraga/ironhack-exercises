@@ -1,7 +1,8 @@
 require 'sinatra'
+require 'sinatra/reloader' if development?
 
 get "/" do
-  "My first Sinatra app."
+  "My first Sinatra app. Let's modify the server.rb file"
 end
 
 get "/about" do
