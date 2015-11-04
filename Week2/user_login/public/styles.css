@@ -1,0 +1,54 @@
+body {
+  font-family: Roboto;
+  font-weight: 100;
+}
+
+#login,
+#content {
+  margin: 0 auto;
+  width: 400px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+#content {
+  border: 0;
+}
+
+#login input {
+  display: block;
+  width: 400px;
+  height: 30px;
+  margin: 0 0 10px 0;
+}
+
+#login button {
+  width: 405px;
+  height: 30px;
+  padding: 5px 10px;
+  border: 1px solid orange;
+  background: orange;
+  color: #fff;
+  transition: .2s linear all;
+}
+
+#login button:hover {
+  background: green;
+  border: 1px solid green;
+}
+
+#error {
+  margin-top: 10px;
+  width: 393px;
+  color: #B40404;
+}
+
+#logout {
+  background: #B40404;
+  color: white;
+  border: 1px solid #B40404;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: 100;
+}

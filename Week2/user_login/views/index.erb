@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="login">
+      <form method="POST" action="/">
+        <input type="text" placeholder="Username" name="username" />
+        <input type="password" placeholder="Password" name="password" />
+
+        <button type="submit">Login</button>
+      </form>
+      <div id="error"><%= @error %></div>
+    </section>
+  </body>
+</html>
