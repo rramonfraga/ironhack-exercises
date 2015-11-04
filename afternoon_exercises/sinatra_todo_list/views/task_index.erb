@@ -6,8 +6,8 @@
   </head>
   <body>
     <ul>
-      <% @todo_list.each do |task| %>
-        <li><%= task %></li>
+      <% @todo_list.tasks.each do |task| %>
+        <li><%= task.content %></li>
       <% end %>
     </ul>
   </body>

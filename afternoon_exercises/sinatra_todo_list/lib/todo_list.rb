@@ -3,20 +3,18 @@ require 'yaml/store'
 
 module ManageData
   def save
-    string = ""
-    @tasks.each do |task|
-      string += "#{task.content}\n"
+    @todo_store = YAML::Store.new(@file_url)
+    @todo_store.transaction do
+      @todo_store[@user] = @tasks
     end
-
-    IO.write @file_url, string
   end
 
   def load_tasks
-    file = File.open(@file_url, "r")
-    file.each do |line|
-      @tasks << line
+    @tasks_hash = YAML.load_file(@file_url)
+    @tasks_hash[@user].each do |task|
+      @tasks << task
     end
-  end  
+  end
 end
 
 class TodoList
@@ -24,9 +22,10 @@ class TodoList
   include ManageData
 
   def initialize user_name
-    @user = user_name
+    @file_url = './public/tasks.yml'
     @tasks = []
-    @file_url = './public/tasks.txt'
+    @user = user_name
+    load_tasks
   end
 
   def add_task task
@@ -52,4 +51,6 @@ class TodoList
       end
     end
   end
+
+  
 end

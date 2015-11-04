@@ -21,6 +21,6 @@ end
 
 get "/tasks" do
   @todo_list = session[:list]
-  binding.pry
+  
   erb(:task_index)
 end
