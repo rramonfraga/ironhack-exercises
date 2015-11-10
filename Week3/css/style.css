@@ -1,5 +1,6 @@
 .box {
   margin: 10px;
+  float: left;
 }
 
 .blue {
@@ -20,6 +21,8 @@
   position: absolute;
   top: 350px;
   left: 350px;
+  z-index: 10;
+  box-shadow: 5px 5px 19px 0 black;
 }
 
 #bottom {

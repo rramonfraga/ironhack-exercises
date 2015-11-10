@@ -40,7 +40,7 @@ h1 {
 
 h3 {
   margin-top: 60px;
-  margin-left: 40px;
+  
   margin-bottom: 6px;
   font-weight: bold;
   font-size: 24px;
@@ -52,7 +52,7 @@ h3 {
   padding-bottom: 20px;
   border-bottom: 1px solid #dfdfdf;
   font-weight: bold;
-  margin: 0 40px 32px;
+  margin: 0 0 32px;
 }
 
 #bottom {
