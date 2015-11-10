@@ -1,0 +1,33 @@
+.box {
+  margin: 10px;
+}
+
+.blue {
+  border: 1px solid red;
+  background: blue;
+}
+
+#red {
+  border: 1px solid blue;
+  background: red;
+}
+
+.green {
+  background: green;
+}
+
+#top {
+  position: absolute;
+  top: 350px;
+  left: 350px;
+}
+
+#bottom {
+  position: absolute;
+  top: 400px;
+  left: 500px;
+}
+
+.direction {
+  padding: 20px;
+}
