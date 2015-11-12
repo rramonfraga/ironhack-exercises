@@ -4,16 +4,17 @@ var hash_array = {};
 
 var server = net.createServer(function(connection) {
     console.log('Connection to %s open', port);
-    connection.write('Hello?\r\n');
+
     connection.on('data', function(data) {
         data = String(data).trim();
         
-        if(data.indexOf("SET") >= 0) {
+        if(data.indexOf("set") >= 0) {
             array_data = data.split(' ');
             hash_array[array_data[1]] = array_data[2];
-        } else if(data.indexOf("GET") >= 0) {
+            connection.write("STORED");
+        } else if(data.indexOf("get") >= 0) {
             array_data = data.split(' ');
-            connection.write(hash_array[array_data[1]]);
+            connection.write("VALUE " + hash_array[array_data[1]]);
         }
     });
 });
