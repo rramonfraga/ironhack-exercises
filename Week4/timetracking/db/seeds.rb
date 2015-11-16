@@ -1,1 +1,1 @@
-(1..25).each{ |id| Project.create(name: "Project #{id}") }
+(1..25).each{ |id| Project.create(name: "Project #{id}", description: "Description #{id}") }
