@@ -1,0 +1,17 @@
+<h1>Contact info</h1>
+<p>Name: <%= @contact.name %></p>
+<p>Address: <%= @contact.address %></p>
+<p>Phone number: <%= @contact.phoneNumber %></p>
+<p>E-Mail: <%= @contact.emailAddress %></p>
+
+<% if(@contact.favorite == true) %>
+  <p>The contact is already in your favorites list!</p>
+<% else %>
+  <form action="/favorite" method="post">
+    <input type="hidden" name="[contact]id" value="<%= @contact.id %>">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button type="submit">Make favorite</button>
+  </form>
+<% end %>
+
+<a href="/contacts">go back</a>

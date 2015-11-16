@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Contact.create name: 'Lluís Arévalo', address: '', phoneNumber: '660800855', emailAddress: 'lluis@ironhack.com'
+Contact.create name: 'Raul Villalonga', address: '', phoneNumber: '600213902', emailAddress: 'raul@ironhack.com'
+Contact.create name: 'Ana Llorca', address: '', phoneNumber: '61222192', emailAddress: 'ana@ironhack.com'
+Contact.create name: 'Charlie', address: '', phoneNumber: '689220394', emailAddress: 'charlie@ironhack.com'
+Contact.create name: 'Christian Ironhack', address: '', phoneNumber: '666023921', emailAddress: 'christian@ironhack.com'
+Contact.create name: 'David Encinas', address: '', phoneNumber: '678342031', emailAddress: 'david@ironhack.com'
+Contact.create name: 'Fer Caballo', address: '', phoneNumber: '644938201', emailAddress: 'caballo@ironhack.com'
+Contact.create name: 'Giancarlo Guerra', address: '', phoneNumber: '620192844', emailAddress: 'giancarlo@ironhack.com'
+Contact.create name: 'Gonzalo Moreno', address: '', phoneNumber: '693291039', emailAddress: 'gonzalo@ironhack.com'
+Contact.create name: 'Iago', address: '', phoneNumber: '630291823', emailAddress: 'iago@ironhack.com'
+Contact.create name: 'Lara Hoya', address: '', phoneNumber: '681029384', emailAddress: 'lara@ironhack.com'
+Contact.create name: 'Roberto Quesada', address: '', phoneNumber: '672039481', emailAddress: 'roberto@ironhack.com'
+Contact.create name: 'Laura', address: '', phoneNumber: '610248292', emailAddress: 'laura@ironhack.com'
+Contact.create name: 'Raul Cabrera', address: '', phoneNumber: '610928347', emailAddress: 'raulc@ironhack.com'
+Contact.create name: 'Macarena', address: '', phoneNumber: '620492812', emailAddress: 'macarena@ironhack.com'
+Contact.create name: 'Rafa', address: '', phoneNumber: '602938421', emailAddress: 'rafa@ironhack.com'
+Contact.create name: 'Ruben Moya', address: '', phoneNumber: '643120983', emailAddress: 'ruben@ironhack.com'
+Contact.create name: 'Virgilio', address: '', phoneNumber: '654987321', emailAddress: 'virgilio@ironhack.com'
