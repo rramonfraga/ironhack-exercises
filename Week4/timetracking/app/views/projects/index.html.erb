@@ -1,0 +1,10 @@
+<ul>
+  <% @projects.each do |project| %>
+    <li><%= project.name %></li>
+    <% if(project.created_at.today?) %>
+      <li style="margin: 0 0 10px 0; list-style-type: none; color: green;"><%= project.created_at %></li>
+    <% else %>
+      <li style="margin: 0 0 10px 0; list-style-type: none; color: blue;"><%= project.updated_at %></li>
+    <% end %>
+  <% end %>
+</ul>
