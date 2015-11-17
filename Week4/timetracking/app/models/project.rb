@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  has_many :entries
+
   def self.iron_find(parameters)
     where('id = ?', parameters).first
   end
