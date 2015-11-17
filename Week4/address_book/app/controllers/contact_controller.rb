@@ -13,7 +13,7 @@ class ContactController < ApplicationController
         :address => params[:contact][:address],
         :phoneNumber => params[:contact][:phoneNumber],
         :emailAddress => params[:contact][:emailAddress])
-      
+
       contact.save
 
       redirect_to("/contacts")

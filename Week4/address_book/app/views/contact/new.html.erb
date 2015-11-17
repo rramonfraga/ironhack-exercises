@@ -1,6 +1,6 @@
 <h1>Add a new contact</h1>
 
-<form action="/contacts" method="POST">
+<form action="/contacts" method="POST" multiple="true">
   <div>
     <label for="contact_name">Name</label>
     <input type="text" name="contact[name]" id="contact_name" required>
@@ -20,6 +20,8 @@
     <label for="contact_email">Email</label>
     <input type="email" name="contact[emailAddress]" id="contact_email">
   </div>
+
+  <!-- <input type="file" name="contact[avatar]" id="contact_avatar"> -->
 
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
