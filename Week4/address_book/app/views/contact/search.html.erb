@@ -1,0 +1,9 @@
+<% if(@contacts.count > 0 && @input_value != "") %>
+  <ul>
+    <% @contacts.each do |contact| %>
+      <li><%= contact.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  No contacts found with the specified data or no data was specified by the user
+<% end %>

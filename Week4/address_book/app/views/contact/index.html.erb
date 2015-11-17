@@ -1,8 +1,15 @@
+<a href="/contacts/new">New contact</a>
+<a href="/contacts/view-favorites">View favorites</a>
+
+<form action="/contacts/search" method="post">
+  <input type="text" name="[search]letter">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button type="submit">Search</button>
+</form>
+
 <ul>
   <% @contacts.each do |contact| %>
     <li><a href="/contacts/show/<%= contact.id %>"><%= contact.name %></a></li>
     <li style="list-style-type: none; margin: 0 0 10px 0;"><%= contact.phoneNumber %></li>
   <% end %>
 </ul>
-
-<a href="/contacts/new">New contact</a>

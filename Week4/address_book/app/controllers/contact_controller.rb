@@ -31,4 +31,14 @@ class ContactController < ApplicationController
   def show
     @contact = Contact.find(params[:id])
   end
+
+  def show_favorites
+    @contacts = Contact.where("favorite IS NOT NULL")
+    render 'favorites'
+  end
+
+  def search
+    @input_value = params[:search][:letter]
+    @contacts = Contact.where("name LIKE '#{@input_value}%'")
+  end
 end

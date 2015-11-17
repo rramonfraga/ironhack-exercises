@@ -4,7 +4,7 @@
 <p>Phone number: <%= @contact.phoneNumber %></p>
 <p>E-Mail: <%= @contact.emailAddress %></p>
 
-<% if(@contact.favorite == true) %>
+<% if(@contact.favorite != nil) %>
   <p>The contact is already in your favorites list!</p>
 <% else %>
   <form action="/favorite" method="post">
