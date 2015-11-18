@@ -7,3 +7,6 @@
   <% end %>
 </ul>
 <p>Total amount of hours worked this month: <strong><%= @total_hours %> h</strong></p>
+
+<%= link_to("Add new entry", new_project_entry_path(@project)) %>
+<%= link_to("Go back to projects", project_path(@project)) %>
