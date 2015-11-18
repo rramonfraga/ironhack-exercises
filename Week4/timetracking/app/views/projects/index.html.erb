@@ -1,9 +1,12 @@
 <ul>
   <% @projects.each do |project| %>
-    <li><%= project.name %>
-      <% if(project.description.present?) %>
-        - <%= project.description %>
-      <% end %>
+    <li>
+      <a href="/projects/<%= project.id %>/entries">
+        <%= project.name %>
+        <% if(project.description.present?) %>
+          - <%= project.description %>
+        <% end %>
+      </a>
     </li>
   <% end %>
 </ul>

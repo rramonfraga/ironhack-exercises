@@ -1,2 +1,6 @@
 <h2><%= @project.name %></h2>
 <p><%= @project.description %></p>
+<p>
+  Total amount of hours worked this month: 
+  <strong><%= @project.total_hours_in_month(Date.current.year, Date.current.month) %> h</strong>
+</p>
