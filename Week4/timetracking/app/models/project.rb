@@ -17,6 +17,13 @@ class Project < ActiveRecord::Base
     order(updated_at: :asc).limit(max)
   end
 
+  def month_entries(year, month)
+    from = Date.new(year, month, 1)
+    to = from.end_of_month
+    
+    self.entries.where(date: from..to)
+  end
+
   def total_hours_in_month(year, month)
     from = Date.new(year, month, 1)
     to = from.end_of_month

@@ -9,5 +9,6 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find_by(id: params[:id]) || render_404(params)
+    @total_hours = @project.total_hours_in_month(Date.current.year, Date.current.month)
   end
 end
