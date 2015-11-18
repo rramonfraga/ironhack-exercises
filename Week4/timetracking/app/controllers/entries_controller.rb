@@ -13,6 +13,11 @@ class EntriesController < ApplicationController
     @entry = @project.entries.new
   end
 
+  def edit
+    @project = Project.find(params[:project_id])
+    @entry = @project.entries.find(params[:id])
+  end
+
   def create
     @project = Project.find(params[:project_id])
     @entry = @project.entries.new(entry_params)
@@ -21,6 +26,17 @@ class EntriesController < ApplicationController
       redirect_to(action: 'index', controller: 'entries', project_id: @project.id)
     else
       render('new')
+    end
+  end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @entry = @project.entries.find(params[:id])
+
+    if(@entry.update_attributes(entry_params))
+      redirect_to(action: 'index', controller: 'entries', project_id: @project.id)
+    else
+      render('edit')
     end
   end
 
