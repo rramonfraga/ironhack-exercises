@@ -18,6 +18,11 @@ class EntriesController < ApplicationController
     @entry = @project.entries.find(params[:id])
   end
 
+  def delete
+    @project = Project.find(params[:project_id])
+    @entry = @project.entries.find(params[:id])
+  end
+
   def create
     @project = Project.find(params[:project_id])
     @entry = @project.entries.new(entry_params)
@@ -38,6 +43,14 @@ class EntriesController < ApplicationController
     else
       render('edit')
     end
+  end
+
+  def destroy
+    project = Project.find(params[:project_id])
+    entry = project.entries.find(params[:id])
+
+    entry.destroy
+    redirect_to(action: 'index', controller: 'entries', project_id: project.id)
   end
 
   private
