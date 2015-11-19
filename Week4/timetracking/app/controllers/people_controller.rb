@@ -9,7 +9,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
-    @projects = Project.all
+    @no_associated_projects = @person.select_no_associated_projects
   end
 
   def create
@@ -27,9 +27,12 @@ class PeopleController < ApplicationController
   def update
     person = Person.find(params[:id])
     project = Project.find(params[:person][:projects])
-    person.projects << project
+    
+    if(!person.projects.find_by(id: params[:person][:projects]))
+      person.projects << project
+    end
 
-    redirect_to(action: 'index', controller: 'people', person_id: person.id)
+    redirect_to(action: 'show', controller: 'people', person_id: person.id)
   end
 
   private

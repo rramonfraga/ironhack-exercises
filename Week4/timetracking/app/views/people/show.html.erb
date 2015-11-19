@@ -1,5 +1,13 @@
 <h2><%= @person.name %> details</h2>
 
+<% if(@person.projects.any?) %>
+  <ul>
+    <% @person.projects.each do |project| %>
+      <li><%= project.name %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= flash_message %>
 
 <% if(@person.errors.any?) %>
@@ -12,7 +20,7 @@
 
 <%= form_for [@person], url: person_path do |f| %>
   <%= f.label :project %>
-  <%= f.collection_select(:projects, @projects, :id, :name) %>
+  <%= f.collection_select(:projects, @no_associated_projects, :id, :name) %>
   <br>
   <%= f.submit "Save" %>
 <% end %>
