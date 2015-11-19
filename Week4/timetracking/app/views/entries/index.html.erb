@@ -1,14 +1,16 @@
 <h1><%= @project.name %></h1>
+<%= flash_message %>
+
 <ul>
   <% @entries.each do |entry| %>
     <li>
-      <%= entry.hours %> h <%= entry.minutes %> m - <%= entry.date %> | 
+      <%= entry.hours %> h <%= entry.minutes %> m - <%= format_date(entry.date) %> | 
       <%= link_to("Edit", edit_project_entry_path(@project, entry)) %> | 
       <%= link_to('Delete', project_entry_path(@project, entry), method: :delete, data: { confirm: 'Are you sure?' }) %>
     </li>
   <% end %>
 </ul>
-<p>Total amount of hours worked this month: <strong><%= @total_hours %> h</strong></p>
+<p>Total amount of hours worked this month: <strong><%= project_total_hours(@project) %> h</strong></p>
 
 <%= link_to("Add new entry", new_project_entry_path(@project)) %>
-<%= link_to("Go back to projects", project_path(@project)) %>
+<%= link_to("Go back to projects", projects_path(@project)) %>

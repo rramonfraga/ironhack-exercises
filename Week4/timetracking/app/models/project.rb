@@ -29,14 +29,11 @@ class Project < ActiveRecord::Base
     self.entries.where(date: from..to)
   end
 
-  def total_hours_in_month(year, month)
-    from = Date.new(year, month, 1)
-    to = from.end_of_month
-
-    minutes = self.entries.where(date: from..to).reduce(0) do |total, entry|
+  def total_hours_in_month
+    minutes = self.entries.reduce(0) do |total, entry|
       total += entry.minutes + entry.hours * 60
     end
 
-    minutes/60.0
+    (minutes/60.0).round(2)
   end
 end

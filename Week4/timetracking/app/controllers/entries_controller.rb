@@ -3,9 +3,7 @@ class EntriesController < ApplicationController
     @project = Project.find_by(id: params[:project_id]) || render_404(params)
 
     date = Date.current
-
     @entries = @project.month_entries(date.year, date.month)
-    @total_hours = @project.total_hours_in_month(date.year, date.month)
   end
 
   def new
@@ -28,8 +26,10 @@ class EntriesController < ApplicationController
     @entry = @project.entries.new(entry_params)
 
     if(@entry.save)
+      flash[:notice] = "Entry created successfully"
       redirect_to(action: 'index', controller: 'entries', project_id: @project.id)
     else
+      flash[:alert] = "Something went wrong"
       render('new')
     end
   end
@@ -39,8 +39,10 @@ class EntriesController < ApplicationController
     @entry = @project.entries.find(params[:id])
 
     if(@entry.update_attributes(entry_params))
+      flash[:notice] = "Entry updated successfully"
       redirect_to(action: 'index', controller: 'entries', project_id: @project.id)
     else
+      flash[:alert] = "Something went wrong"
       render('edit')
     end
   end
