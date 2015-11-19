@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<% if(@people.any?) %>
+  <ul>
+    <% @people.each do |person| %>
+      <li><%= link_to(person.name, person_path(person)) %></li>
+    <% end %>
+  </ul>
+<% end %>
