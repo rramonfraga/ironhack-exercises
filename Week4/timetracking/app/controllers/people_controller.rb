@@ -9,6 +9,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    @projects = @person.projects
     @no_associated_projects = @person.select_no_associated_projects
   end
 

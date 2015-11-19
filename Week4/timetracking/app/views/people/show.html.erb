@@ -1,8 +1,8 @@
 <h2><%= @person.name %> details</h2>
 
-<% if(@person.projects.any?) %>
+<% if(@projects.any?) %>
   <ul>
-    <% @person.projects.each do |project| %>
+    <% @projects.each do |project| %>
       <li><%= project.name %></li>
     <% end %>
   </ul>
