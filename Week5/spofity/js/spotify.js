@@ -28,7 +28,19 @@ function searchArtistAlbums(event){
   var id = $(event.currentTarget).attr("data-id");
   var requestUri = "https://api.spotify.com/v1/artists/" + id + "/albums";
 
-  doRequest(requestUri, showArtistAlbums);
+  var request = $.get(requestUri);
+
+  function onSuccess(response){
+    showArtistAlbums(response);
+    searchRelatedArtists(id);
+  }
+
+  function onFailure(error){
+    console.error(error.responseJSON);
+  }
+
+  request.done(onSuccess);
+  request.fail(onFailure);
 }
 
 function searchAlbumTracks(event){
@@ -40,13 +52,21 @@ function searchAlbumTracks(event){
   doRequest(requestUri, showAlbumTracks);
 }
 
+function searchRelatedArtists(artistId){
+  event.preventDefault();
+  
+  var requestUri = "https://api.spotify.com/v1/artists/" + artistId + "/related-artists";
+
+  doRequest(requestUri, showRelatedArtists);
+}
+
 function showArtistsInfo(response){
   var artists = response["artists"]["items"];
 
   $("#artists article").remove();
 
   artists.forEach(function(artist){
-    var html = "<article class='clearfix'><figure data-id='" + artist.id + "' class='col-md-3 col-xs-3 pull-left'>";
+    var html = "<article class='clearfix pull-left col-md-3 col-xs-3'><figure data-id='" + artist.id + "' class='col-md-12 col-xs-12 pull-left'>";
     html = html + "<img src='" + getArtistImage(artist.images) + "' class='col-md-12 col-xs-12'>";
     html = html + "<figcaption>" + artist.name + "</figcaption></figure>";
     html = html + "<div class='songs-list col-md-9 col-xs-9 pull-right'></div>";
@@ -68,6 +88,21 @@ function showArtistAlbums(response){
   
   modalbody.append(html);
   $("#albums").modal("show");
+}
+
+function showRelatedArtists(response){
+  var relatedArtists = response["artists"];
+  
+  if(relatedArtists.length > 5) {
+    relatedArtists = relatedArtists.slice(0, 5);
+  }
+
+  var html = "<h3>Related artists</h3>";
+  relatedArtists.forEach(function(artist){
+    html = html + "<div>" + artist.name + "</div>";
+  });
+
+  $("#albums div:last").append(html);
 }
 
 function showAlbumTracks(response){
