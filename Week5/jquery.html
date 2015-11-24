@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+      .unicorn-mode {
+        background-image: linear-gradient(orange, yellow, red, green, blue);
+        color: #fff;
+      }
+
+      .button-color {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="info" value="Hello world">
+    <p>Add the h1 on top of this paragraph.</p>
+
+    <button id="btn-remove" class="btn btn-primary hello-button">Remove all</button>
+    <button id="btn-unicorn" class="btn btn-primary hello-button">Set unicorn mode</button>
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    <button>Button 4</button>
+
+    <div style="margin-top: 20px;">
+      <form action="#">
+        <input class="required-txt" type="text" placeholder="Insert something" style="width: 200px;">
+        <button id="sendForm" type="submit" style="width: 200px;">Submit it... if you can</button>
+      </form>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        var h1_tag = "<h1>" + $("#info").val() + "</h1>";
+        $("p").before(h1_tag);
+
+        // setInterval(function(){
+        //   changeColors();
+        // }, 1000);
+      });
+
+      $('#btn-remove').on('click', function () {
+        $("body > :not(#btn-remove)").toggle();
+      });
+
+      $("form").on("submit", function(event){
+        if($(".required-txt").val() === "") {
+          event.preventDefault();
+          alert("Fill all the fields");
+        }
+      });
+
+      function generateRandomColor(){
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      function changeColors() {
+        $("body > *").each(function() {
+          //$(this).css("background-image", "linear-gradient(" + generateRandomColor() + ", " + generateRandomColor() + ", " + generateRandomColor() + ", " + generateRandomColor() + ")");
+          $(this).addClass("unicorn-mode");
+        });
+      }
+
+      $('#btn-unicorn').on('click', function () {
+        changeColors();
+      });
+
+      $('button').on('click', function(event){
+        $(event.currentTarget).addClass("button-color");
+      });
+    </script>
+  </body>
+</html>

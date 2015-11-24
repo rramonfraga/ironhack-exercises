@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random phrases</title>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <style>
+    a.red {
+      color: red;
+      cursor: pointer;
+      font-size: 20px;
+    }
+    .current {
+      background: yellow;
+    }
+    li.temp {
+      list-style-type: none;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 id="phrase"></h1>
+    <button id="getPhrase">Refresh</button>
+  </div>
+  <form>
+    <input type="text" id="newPhrase" placeholder="Insert a new word...">
+  </form>
+  <a id="showHide">Show / hide elements</a>
+  <div id="listContainer">
+    <ul></ul>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
