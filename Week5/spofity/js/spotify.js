@@ -66,7 +66,7 @@ function showArtistsInfo(response){
   $("#artists article").remove();
 
   artists.forEach(function(artist){
-    var html = "<article class='clearfix pull-left col-md-3 col-xs-3'><figure data-id='" + artist.id + "' class='col-md-12 col-xs-12 pull-left'>";
+    var html = "<article class='pull-left col-md-3 col-xs-3'><figure data-id='" + artist.id + "' class='col-md-12 col-xs-12'>";
     html = html + "<img src='" + getArtistImage(artist.images) + "' class='col-md-12 col-xs-12'>";
     html = html + "<figcaption>" + artist.name + "</figcaption></figure>";
     html = html + "<div class='songs-list col-md-9 col-xs-9 pull-right'></div>";
