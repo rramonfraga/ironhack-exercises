@@ -1,0 +1,57 @@
+section.container {
+  margin-top: 40px;
+}
+
+section.container .txt,
+section.container .btn {
+  height: 46px;
+  font-size: 20px;
+  font-weight: 300;
+  outline: none;
+}
+
+section.container .txt {
+  border: 1px solid #ccc;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+section.container .btn {
+  background: #82bc41;
+  border: 1px solid #82bc41;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: #fff;
+}
+
+section.container .btn:hover {
+  background: #191515;
+  border-color: #191515;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 30px;
+}
+
+#artists figure {
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+#artists .songs-list {
+  margin: 20px 0;
+}
+
+#artists figcaption {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-body a {
+  cursor: pointer;
+  font-size: 16px;
+}
